@@ -48,6 +48,18 @@
       position: relative;
     }
 
+    /* --- AJUSTE 2: Color azul para título y separador --- */
+    .modal-content h3 {
+      color: #007bff;
+      margin-top: 0;
+    }
+
+    .modal-content hr {
+      border: none;
+      border-top: 2px solid #007bff;
+      margin: 15px 0;
+    }
+
     .close-btn {
       position: absolute; top: 10px; right: 15px; 
       font-size: 20px; cursor: pointer; color: #888;
@@ -72,6 +84,8 @@
       <p><strong>JEFE DE CUENTAS:</strong> <span id="modal-jefe"></span></p>
       <p><strong>FANUC:</strong> <span id="modal-email"></span></p>
       <p><strong>EQUIPO ASA:</strong> <span id="modal-contacto"></span></p>
+      <!-- --- AJUSTE 2: Nuevo campo para Tipo de Industria --- -->
+      <p><strong>TIPO DE INDUSTRIA:</strong> <span id="modal-industria"></span></p>
     </div>
   </div>
 
@@ -128,6 +142,8 @@
       document.getElementById("modal-jefe").innerText = cliente["JEFE DE CUENTAS"] || "-";
       document.getElementById("modal-email").innerText = cliente["FANUC"] || "-";
       document.getElementById("modal-contacto").innerText = cliente["EQUIPO ASA"] || "-";
+      /* --- AJUSTE 2: Asignación del nuevo campo --- */
+      document.getElementById("modal-industria").innerText = cliente["TIPO DE INDUSTRIA"] || "-";
       
       document.getElementById("modal-cliente").style.display = "flex";
     }
