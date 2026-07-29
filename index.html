@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prueba Directorio Clientes</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f4f6f9; }
+    
+    /* Contenedor de botones */
+    .btn-container { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+    
+    .btn-cliente {
+      padding: 10px 18px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .btn-cliente:hover { background-color: #0056b3; }
+
+    /* Ventana emergente (Modal) */
+    .modal {
+      display: none; 
+      position: fixed; 
+      top: 0; left: 0; width: 100%; height: 100%; 
+      background-color: rgba(0,0,0,0.5); 
+      justify-content: center; align-items: center;
+    }
+    
+    .modal-content {
+      background: white; 
+      padding: 24px; 
+      border-radius: 8px; 
+      max-width: 400px; 
+      width: 90%;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute; top: 10px; right: 15px; 
+      font-size: 20px; cursor: pointer; color: #888;
+    }
+    .close-btn:hover { color: #000; }
+  </style>
+</head>
+<body>
+
+  <h2>Directorio de Clientes</h2>
+  <p>Selecciona un cliente para ver su información de contacto:</p>
+  
+  <!-- Aquí se cargarán los botones automáticamente -->
+  <div id="contenedor-botones" class="btn-container">Cargando clientes...</div>
+
+  <!-- Cuadro emergente (Modal) -->
+  <div id="modal-cliente" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="cerrarModal()">&times;</span>
+      <h3 id="modal-titulo">Cliente</h3>
+      <hr>
+      <p><strong>JEFE DE CUENTAS:</strong> <span id="modal-jefe"></span></p>
+      <p><strong>FANUC:</strong> <span id="modal-email"></span></p>
+      <p><strong>EQUIPO ASA:</strong> <span id="modal-contacto"></span></p>
+    </div>
+  </div>
+
+  <script>
+    const urlCSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSnIZ946fJMi0Z43hNigGSDMtY_j3J5P4wXe7YwtPKu_3JT1ObCnKMAhPzlCBJcRrrB_u4YKp2WMQI8/pub?output=csv";
+
+    let datosClientes = [];
+
+    async function cargarDatos() {
+      try {
+        const respuesta = await fetch(urlCSV);
+        const texto = await respuesta.text();
+        
+        const filas = texto.split("\n").map(row => row.split(","));
+        const encabezados = filas[0].map(h => h.trim());
+        
+        datosClientes = filas.slice(1).map(fila => {
+          let cliente = {};
+          encabezados.forEach((encabezado, index) => {
+            cliente[encabezado] = fila[index] ? fila[index].trim() : "";
+          });
+          return cliente;
+        }).filter(c => c["CLIENTE"]);
+
+        generarBotones();
+      } catch (error) {
+        const contenedor = document.getElementById("contenedor-botones");
+        if (contenedor) {
+          contenedor.innerHTML = "Error al cargar los datos.";
+        }
+        console.error("Error:", error);
+      }
+    }
+
+    function generarBotones() {
+      const contenedor = document.getElementById("contenedor-botones");
+      if (!contenedor) return;
+
+      contenedor.innerHTML = "";
+
+      datosClientes.forEach((item, index) => {
+        const btn = document.createElement("button");
+        btn.className = "btn-cliente";
+        btn.innerText = item["CLIENTE"];
+        btn.onclick = () => abrirModal(index);
+        contenedor.appendChild(btn);
+      });
+    }
+
+    function abrirModal(index) {
+      const cliente = datosClientes[index];
+      
+      document.getElementById("modal-titulo").innerText = cliente["CLIENTE"] || "Sin datos";
+      document.getElementById("modal-jefe").innerText = cliente["JEFE DE CUENTAS"] || "-";
+      document.getElementById("modal-email").innerText = cliente["FANUC"] || "-";
+      document.getElementById("modal-contacto").innerText = cliente["EQUIPO ASA"] || "-";
+      
+      document.getElementById("modal-cliente").style.display = "flex";
+    }
+
+    function cerrarModal() {
+      document.getElementById("modal-cliente").style.display = "none";
+    }
+
+    cargarDatos();
+  </script>
+</body>
+</html>
