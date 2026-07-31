@@ -1,6 +1,6 @@
 // Configuración para leer tu carpeta de OneDrive Familia mediante enlace compartido
 // Simplemente pega aquí el enlace de compartir de tu carpeta principal de OneDrive
-const OED_SHARED_FOLDER_URL = 'PEGA_AQUI_TU_ENLACE_DE_ONEDRIVE';
+const OED_SHARED_FOLDER_URL = 'https://1drv.ms/f/c/fa856147e6bb0cf7/IgBoZJAr-x06QJjQrVbUe45BAX6fVCB3zcBR-Hflhxk9pBY?e=ummgsA';
 
 // Función para inicializar la visualización de la estructura
 async function cargarEstructuraOneDrive() {
