@@ -1,33 +1,156 @@
-const OED_SHARED_FOLDER_URL = 'https://1drv.ms/f/c/fa856147e6bb0cf7/IgBoZJAr-x06QJjQrVbUe45BAX6fVCB3zcBR-Hflhxk9pBY?e=ummgsA';
-
+// Estructura completa con las carpetas y clientes reales
 const estructuraDatos = {
-    "AGROSUPER": {
+    "Andinos": {
         tipo: "carpeta",
         contenido: {
-            "Planos y Diseños": {
+            "Documentacion General": {
                 tipo: "carpeta",
                 contenido: {
-                    "Plano_Estructural_Agrosuper.dwg": { tipo: "dwg", url: "#" },
-                    "Memoria_Calculo.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }
-                }
-            },
-            "Informes Técnicos": {
-                tipo: "carpeta",
-                contenido: {
-                    "Informe_Inspeccion_2026.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
-                    "Registro_Metricas.xls": { tipo: "xls", url: "#" }
+                    "Especificaciones_Andinos.pdf": { tipo: "pdf", url: "#" },
+                    "Planilla_Control_Andinos.xls": { tipo: "xls", url: "#" },
+                    "Plano_Instalacion_Andinos.dwg": { tipo: "dwg", url: "#" }
                 }
             }
         }
     },
-    "WALMART | WAYS": {
+    "Arcor": {
         tipo: "carpeta",
         contenido: {
-            "Contratos y Acuerdos": {
+            "Documentacion General": {
                 tipo: "carpeta",
                 contenido: {
-                    "Contrato_Servicios_Walmart.doc": { tipo: "doc", url: "#" },
-                    "Anexo_Firmado.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }
+                    "Especificaciones_Arcor.pdf": { tipo: "pdf", url: "#" },
+                    "Planilla_Control_Arcor.xls": { tipo: "xls", url: "#" },
+                    "Plano_Instalacion_Arcor.dwg": { tipo: "dwg", url: "#" }
+                }
+            }
+        }
+    },
+    "ASA": {
+        tipo: "carpeta",
+        contenido: {
+            "Documentacion General": {
+                tipo: "carpeta",
+                contenido: {
+                    "Especificaciones_ASA.pdf": { tipo: "pdf", url: "#" },
+                    "Planilla_Control_ASA.xls": { tipo: "xls", url: "#" },
+                    "Plano_Instalacion_ASA.dwg": { tipo: "dwg", url: "#" }
+                }
+            }
+        }
+    },
+    "Cartocor": {
+        tipo: "carpeta",
+        contenido: {
+            "Documentacion General": {
+                tipo: "carpeta",
+                contenido: {
+                    "Especificaciones_Cartocor.pdf": { tipo: "pdf", url: "#" },
+                    "Planilla_Control_Cartocor.xls": { tipo: "xls", url: "#" },
+                    "Plano_Instalacion_Cartocor.dwg": { tipo: "dwg", url: "#" }
+                }
+            }
+        }
+    },
+    "Electrolux": {
+        tipo: "carpeta",
+        contenido: {
+            "Documentacion General": {
+                tipo: "carpeta",
+                contenido: {
+                    "Especificaciones_Electrolux.pdf": { tipo: "pdf", url: "#" },
+                    "Planilla_Control_Electrolux.xls": { tipo: "xls", url: "#" },
+                    "Plano_Instalacion_Electrolux.dwg": { tipo: "dwg", url: "#" }
+                }
+            }
+        }
+    },
+    "FPC": {
+        tipo: "carpeta",
+        contenido: {
+            "Documentacion General": {
+                tipo: "carpeta",
+                contenido: {
+                    "Especificaciones_FPC.pdf": { tipo: "pdf", url: "#" },
+                    "Planilla_Control_FPC.xls": { tipo: "xls", url: "#" },
+                    "Plano_Instalacion_FPC.dwg": { tipo: "dwg", url: "#" }
+                }
+            }
+        }
+    },
+    "Hamburgo": {
+        tipo: "carpeta",
+        contenido: {
+            "Documentacion General": {
+                tipo: "carpeta",
+                contenido: {
+                    "Especificaciones_Hamburgo.pdf": { tipo: "pdf", url: "#" },
+                    "Planilla_Control_Hamburgo.xls": { tipo: "xls", url: "#" },
+                    "Plano_Instalacion_Hamburgo.dwg": { tipo: "dwg", url: "#" }
+                }
+            }
+        }
+    },
+    "LAF": {
+        tipo: "carpeta",
+        contenido: {
+            "Documentacion General": {
+                tipo: "carpeta",
+                contenido: {
+                    "Especificaciones_LAF.pdf": { tipo: "pdf", url: "#" },
+                    "Planilla_Control_LAF.xls": { tipo: "xls", url: "#" },
+                    "Plano_Instalacion_LAF.dwg": { tipo: "dwg", url: "#" }
+                }
+            }
+        }
+    },
+    "Manuales Fanuc": {
+        tipo: "carpeta",
+        contenido: {
+            "Documentacion General": {
+                tipo: "carpeta",
+                contenido: {
+                    "Manual_Operacion_Fanuc.pdf": { tipo: "pdf", url: "#" },
+                    "Parametros_Fanuc.xls": { tipo: "xls", url: "#" }
+                }
+            }
+        }
+    },
+    "Minuto Verde": {
+        tipo: "carpeta",
+        contenido: {
+            "Documentacion General": {
+                tipo: "carpeta",
+                contenido: {
+                    "Especificaciones_MinutoVerde.pdf": { tipo: "pdf", url: "#" },
+                    "Planilla_Control_MinutoVerde.xls": { tipo: "xls", url: "#" },
+                    "Plano_Instalacion_MinutoVerde.dwg": { tipo: "dwg", url: "#" }
+                }
+            }
+        }
+    },
+    "TPC": {
+        tipo: "carpeta",
+        contenido: {
+            "Documentacion General": {
+                tipo: "carpeta",
+                contenido: {
+                    "Especificaciones_TPC.pdf": { tipo: "pdf", url: "#" },
+                    "Planilla_Control_TPC.xls": { tipo: "xls", url: "#" },
+                    "Plano_Instalacion_TPC.dwg": { tipo: "dwg", url: "#" }
+                }
+            }
+        }
+    },
+    "Walmart": {
+        tipo: "carpeta",
+        contenido: {
+            "Documentacion General": {
+                tipo: "carpeta",
+                contenido: {
+                    "Especificaciones_Walmart.pdf": { tipo: "pdf", url: "#" },
+                    "Planilla_Control_Walmart.xls": { tipo: "xls", url: "#" },
+                    "Plano_Instalacion_Walmart.dwg": { tipo: "dwg", url: "#" }
                 }
             }
         }
@@ -40,37 +163,9 @@ let tituloActual = "Seleccione un Cliente";
 
 function cargarEstructuraOneDrive() {
     historialNavegacion = [];
-    datosActuales = obtenerListaClientesBase();
+    datosActuales = estructuraDatos;
     tituloActual = "Seleccione un Cliente";
     renderizarVista();
-}
-
-function obtenerListaClientesBase() {
-    const clientesNombres = [
-        "AGROSUPER", "ANDINOS", "ARCOR", 
-        "CARTOCOR", "FPC", "HAMBURGO", 
-        "JBA", "KOANDINA", "LAF", 
-        "MELT | PFS", "MINUTO VERDE", "NESTLE", 
-        "SANDVIK", "SCALPI", "SUNSWEET", 
-        "PULMAHUE", "TP to Go", "TPC CARNE", "WALMART | WAYS"
-    ];
-    let obj = {};
-    clientesNombres.forEach(c => {
-        obj[c] = estructuraDatos[c] || {
-            tipo: "carpeta",
-            contenido: {
-                "Documentacion General": {
-                    tipo: "carpeta",
-                    contenido: {
-                        [`Especificaciones_${c.replace(/[^a-zA-Z0-9]/g, '_')}.pdf`]: { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
-                        [`Planilla_Control_${c.replace(/[^a-zA-Z0-9]/g, '_')}.xls`]: { tipo: "xls", url: "#" },
-                        [`Plano_Instalacion_${c.replace(/[^a-zA-Z0-9]/g, '_')}.dwg`]: { tipo: "dwg", url: "#" }
-                    }
-                }
-            }
-        };
-    });
-    return obj;
 }
 
 function renderizarVista() {
@@ -156,7 +251,6 @@ function obtenerIconoArchivo(tipo) {
 function manejarArchivo(nombre, tipo, url) {
     const modal = document.getElementById('modal-visor');
     if (tipo === 'pdf') {
-        // Visor nativo integrado y limpio del navegador
         modal.innerHTML = `
             <div style="background: white; border: 1px solid #ccc; padding: 15px; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
