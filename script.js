@@ -1,6 +1,5 @@
 const OED_SHARED_FOLDER_URL = 'https://1drv.ms/f/c/fa856147e6bb0cf7/IgBoZJAr-x06QJjQrVbUe45BAX6fVCB3zcBR-Hflhxk9pBY?e=ummgsA';
 
-// Estructura de prueba con carpetas y archivos definidos
 const estructuraDatos = {
     "AGROSUPER": {
         tipo: "carpeta",
@@ -100,7 +99,6 @@ function renderizarVista() {
     for (let nombre in datosActuales) {
         let elemento = datosActuales[nombre];
         if (elemento.tipo === "carpeta") {
-            // Botón limpio sin icono de carpeta amarilla
             html += `
                 <button onclick="ingresarCarpeta('${nombre}')" style="
                     background-color: #0078d4; color: white; border: none; padding: 16px 12px; border-radius: 6px; 
@@ -111,7 +109,6 @@ function renderizarVista() {
                 </button>
             `;
         } else {
-            // Archivo limpio con solo su icono y nombre
             let icono = obtenerIconoArchivo(elemento.tipo);
             html += `
                 <div onclick="manejarArchivo('${nombre}', '${elemento.tipo}', '${elemento.url}')" style="
@@ -159,21 +156,21 @@ function obtenerIconoArchivo(tipo) {
 function manejarArchivo(nombre, tipo, url) {
     const modal = document.getElementById('modal-visor');
     if (tipo === 'pdf') {
-        // Previsualización web directa limpia integrada en la página sin mostrar OneDrive
+        // Usamos un visor seguro en línea compatible para evitar bloqueos de origen cruzado
+        let urlVisor = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(url)}`;
+        
         modal.innerHTML = `
             <div style="background: white; border: 1px solid #ccc; padding: 15px; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                     <h4 style="margin: 0; color: #d83b01;">Previsualización: ${nombre}</h4>
                     <button onclick="document.getElementById('modal-visor').innerHTML=''" style="background: #ccc; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-weight: bold;">Cerrar ✕</button>
                 </div>
-                <iframe src="${url}" style="width: 100%; height: 500px; border: 1px solid #ddd; border-radius: 4px;"></iframe>
+                <iframe src="${urlVisor}" style="width: 100%; height: 550px; border: 1px solid #ddd; border-radius: 4px;"></iframe>
             </div>
         `;
     } else {
-        // Ventana emergente indicando iniciar descarga para DOC, XLS, DWG
         let confirmar = confirm(`Iniciar Descarga:\n¿Desea descargar el archivo "${nombre}"?`);
         if (confirmar) {
-            // Simulación de descarga directa limpia
             let a = document.createElement('a');
             a.href = url;
             a.download = nombre;
