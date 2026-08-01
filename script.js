@@ -1,4 +1,4 @@
-// Estructura limpia y lógica de clientes y archivos
+// Estructura completa y real lista para integrar tus enlaces y archivos definitivos
 const estructuraDatos = {
     "Andinos": {
         tipo: "carpeta",
