@@ -1,99 +1,158 @@
-// Estructura directa de clientes y archivos reales sin carpetas intermedias
+// Estructura multinivel real: carpetas, subcarpetas y archivos finales
 const estructuraDatos = {
     "Andinos": {
         tipo: "carpeta",
         contenido: {
-            "Especificaciones_Andinos.pdf": { tipo: "pdf", url: "#" },
-            "Planilla_Control_Andinos.xls": { tipo: "xls", url: "#" },
-            "Plano_Instalacion_Andinos.dwg": { tipo: "dwg", url: "#" }
+            "Ingeniería y Proyectos": {
+                tipo: "carpeta",
+                contenido: {
+                    "Planos": {
+                        tipo: "carpeta",
+                        contenido: {
+                            "Plano_Instalacion_Andinos.dwg": { tipo: "dwg", url: "#" }
+                        }
+                    },
+                    "Especificaciones_Andinos.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
+                    "Planilla_Control_Andinos.xls": { tipo: "xls", url: "#" }
+                }
+            }
         }
     },
     "Arcor": {
         tipo: "carpeta",
         contenido: {
-            "Especificaciones_Arcor.pdf": { tipo: "pdf", url: "#" },
-            "Planilla_Control_Arcor.xls": { tipo: "xls", url: "#" },
-            "Plano_Instalacion_Arcor.dwg": { tipo: "dwg", url: "#" }
+            "Documentacion General": {
+                tipo: "carpeta",
+                contenido: {
+                    "Especificaciones_Arcor.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
+                    "Planilla_Control_Arcor.xls": { tipo: "xls", url: "#" },
+                    "Plano_Instalacion_Arcor.dwg": { tipo: "dwg", url: "#" }
+                }
+            }
         }
     },
     "ASA": {
         tipo: "carpeta",
         contenido: {
-            "Especificaciones_ASA.pdf": { tipo: "pdf", url: "#" },
-            "Planilla_Control_ASA.xls": { tipo: "xls", url: "#" },
-            "Plano_Instalacion_ASA.dwg": { tipo: "dwg", url: "#" }
+            "Documentacion General": {
+                tipo: "carpeta",
+                contenido: {
+                    "Especificaciones_ASA.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
+                    "Planilla_Control_ASA.xls": { tipo: "xls", url: "#" },
+                    "Plano_Instalacion_ASA.dwg": { tipo: "dwg", url: "#" }
+                }
+            }
         }
     },
     "Cartocor": {
         tipo: "carpeta",
         contenido: {
-            "Especificaciones_Cartocor.pdf": { tipo: "pdf", url: "#" },
-            "Planilla_Control_Cartocor.xls": { tipo: "xls", url: "#" },
-            "Plano_Instalacion_Cartocor.dwg": { tipo: "dwg", url: "#" }
+            "Documentacion General": {
+                tipo: "carpeta",
+                contenido: {
+                    "Especificaciones_Cartocor.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
+                    "Planilla_Control_Cartocor.xls": { tipo: "xls", url: "#" },
+                    "Plano_Instalacion_Cartocor.dwg": { tipo: "dwg", url: "#" }
+                }
+            }
         }
     },
     "Electrolux": {
         tipo: "carpeta",
         contenido: {
-            "Especificaciones_Electrolux.pdf": { tipo: "pdf", url: "#" },
-            "Planilla_Control_Electrolux.xls": { tipo: "xls", url: "#" },
-            "Plano_Instalacion_Electrolux.dwg": { tipo: "dwg", url: "#" }
+            "Documentacion General": {
+                tipo: "carpeta",
+                contenido: {
+                    "Especificaciones_Electrolux.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
+                    "Planilla_Control_Electrolux.xls": { tipo: "xls", url: "#" },
+                    "Plano_Instalacion_Electrolux.dwg": { tipo: "dwg", url: "#" }
+                }
+            }
         }
     },
     "FPC": {
         tipo: "carpeta",
         contenido: {
-            "Especificaciones_FPC.pdf": { tipo: "pdf", url: "#" },
-            "Planilla_Control_FPC.xls": { tipo: "xls", url: "#" },
-            "Plano_Instalacion_FPC.dwg": { tipo: "dwg", url: "#" }
+            "Documentacion General": {
+                tipo: "carpeta",
+                contenido: {
+                    "Especificaciones_FPC.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
+                    "Planilla_Control_FPC.xls": { tipo: "xls", url: "#" },
+                    "Plano_Instalacion_FPC.dwg": { tipo: "dwg", url: "#" }
+                }
+            }
         }
     },
     "Hamburgo": {
         tipo: "carpeta",
         contenido: {
-            "Especificaciones_Hamburgo.pdf": { tipo: "pdf", url: "#" },
-            "Planilla_Control_Hamburgo.xls": { tipo: "xls", url: "#" },
-            "Plano_Instalacion_Hamburgo.dwg": { tipo: "dwg", url: "#" }
+            "Documentacion General": {
+                tipo: "carpeta",
+                contenido: {
+                    "Especificaciones_Hamburgo.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
+                    "Planilla_Control_Hamburgo.xls": { tipo: "xls", url: "#" },
+                    "Plano_Instalacion_Hamburgo.dwg": { tipo: "dwg", url: "#" }
+                }
+            }
         }
     },
     "LAF": {
         tipo: "carpeta",
         contenido: {
-            "Especificaciones_LAF.pdf": { tipo: "pdf", url: "#" },
-            "Planilla_Control_LAF.xls": { tipo: "xls", url: "#" },
-            "Plano_Instalacion_LAF.dwg": { tipo: "dwg", url: "#" }
+            "Documentacion General": {
+                tipo: "carpeta",
+                contenido: {
+                    "Especificaciones_LAF.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
+                    "Planilla_Control_LAF.xls": { tipo: "xls", url: "#" },
+                    "Plano_Instalacion_LAF.dwg": { tipo: "dwg", url: "#" }
+                }
+            }
         }
     },
     "Manuales Fanuc": {
         tipo: "carpeta",
         contenido: {
-            "Manual_Operacion_Fanuc.pdf": { tipo: "pdf", url: "#" },
+            "Manual_Operacion_Fanuc.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
             "Parametros_Fanuc.xls": { tipo: "xls", url: "#" }
         }
     },
     "Minuto Verde": {
         tipo: "carpeta",
         contenido: {
-            "Especificaciones_MinutoVerde.pdf": { tipo: "pdf", url: "#" },
-            "Planilla_Control_MinutoVerde.xls": { tipo: "xls", url: "#" },
-            "Plano_Instalacion_MinutoVerde.dwg": { tipo: "dwg", url: "#" }
+            "Documentacion General": {
+                tipo: "carpeta",
+                contenido: {
+                    "Especificaciones_MinutoVerde.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
+                    "Planilla_Control_MinutoVerde.xls": { tipo: "xls", url: "#" },
+                    "Plano_Instalacion_MinutoVerde.dwg": { tipo: "dwg", url: "#" }
+                }
+            }
         }
     },
     "TPC": {
         tipo: "carpeta",
         contenido: {
-            "Especificaciones_TPC.pdf": { tipo: "pdf", url: "#" },
-            "Planilla_Control_TPC.xls": { tipo: "xls", url: "#" },
-            "Plano_Instalacion_TPC.dwg": { tipo: "dwg", url: "#" }
+            "Documentacion General": {
+                tipo: "carpeta",
+                contenido: {
+                    "Especificaciones_TPC.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
+                    "Planilla_Control_TPC.xls": { tipo: "xls", url: "#" },
+                    "Plano_Instalacion_TPC.dwg": { tipo: "dwg", url: "#" }
+                }
+            }
         }
     },
     "Walmart": {
         tipo: "carpeta",
         contenido: {
-            "Especificaciones_Walmart.pdf": { tipo: "pdf", url: "#" },
-            "Planilla_Code_Walmart.pdf": { tipo: "pdf", url: "#" },
-            "Planilla_Control_Walmart.xls": { tipo: "xls", url: "#" },
-            "Plano_Instalacion_Walmart.dwg": { tipo: "dwg", url: "#" }
+            "Documentacion General": {
+                tipo: "carpeta",
+                contenido: {
+                    "Especificaciones_Walmart.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
+                    "Planilla_Control_Walmart.xls": { tipo: "xls", url: "#" },
+                    "Plano_Instalacion_Walmart.dwg": { tipo: "dwg", url: "#" }
+                }
+            }
         }
     }
 };
@@ -116,7 +175,7 @@ function renderizarVista() {
     let html = `
         <div style="margin-bottom: 20px; text-align: center;">
             <h3 style="color: #333; margin-bottom: 5px;">${tituloActual}</h3>
-            <p style="font-size: 13px; color: #666;">Seleccione un cliente para ver sus documentos disponibles.</p>
+            <p style="font-size: 13px; color: #666;">Navegue a través de las carpetas para acceder a los archivos.</p>
         </div>
     `;
 
@@ -124,14 +183,13 @@ function renderizarVista() {
         html += `
             <div style="max-width: 950px; margin: 0 auto 15px auto; text-align: left;">
                 <button onclick="volverAtras()" style="background: #6c757d; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 12px;">
-                    ← Volver a Clientes
+                    ← Volver atrás
                 </button>
             </div>
         `;
     }
 
-    // Botones con tamaño equilibrado (minmax de 160px para que no queden gigantes)
-    html += `<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; max-width: 950px; margin: 0 auto;">`;
+    html += `<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; max-width: 950px; margin: 0 auto;">`;
 
     for (let nombre in datosActuales) {
         let elemento = datosActuales[nombre];
@@ -167,7 +225,7 @@ function renderizarVista() {
 function ingresarCarpeta(nombreCarpeta) {
     historialNavegacion.push({ datos: datosActuales, titulo: tituloActual });
     datosActuales = datosActuales[nombreCarpeta].contenido;
-    tituloActual = "Cliente: " + nombreCarpeta;
+    tituloActual = nombreCarpeta;
     renderizarVista();
 }
 
@@ -192,7 +250,6 @@ function obtenerIconoArchivo(tipo) {
 
 function manejarArchivo(nombre, tipo, url) {
     const modal = document.getElementById('modal-visor');
-    // Aquí puedes cambiar el comportamiento si prefieres que los PDF se descarguen en vez de abrir visor:
     if (tipo === 'pdf' && url !== '#') {
         modal.innerHTML = `
             <div style="background: white; border: 1px solid #ccc; padding: 15px; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
