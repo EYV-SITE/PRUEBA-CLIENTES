@@ -156,16 +156,14 @@ function obtenerIconoArchivo(tipo) {
 function manejarArchivo(nombre, tipo, url) {
     const modal = document.getElementById('modal-visor');
     if (tipo === 'pdf') {
-        // Usamos un visor seguro en línea compatible para evitar bloqueos de origen cruzado
-        let urlVisor = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(url)}`;
-        
+        // Visor nativo integrado y limpio del navegador
         modal.innerHTML = `
             <div style="background: white; border: 1px solid #ccc; padding: 15px; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                     <h4 style="margin: 0; color: #d83b01;">Previsualización: ${nombre}</h4>
                     <button onclick="document.getElementById('modal-visor').innerHTML=''" style="background: #ccc; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-weight: bold;">Cerrar ✕</button>
                 </div>
-                <iframe src="${urlVisor}" style="width: 100%; height: 550px; border: 1px solid #ddd; border-radius: 4px;"></iframe>
+                <embed src="${url}" type="application/pdf" width="100%" height="550px" style="border: 1px solid #ddd; border-radius: 4px;" />
             </div>
         `;
     } else {
