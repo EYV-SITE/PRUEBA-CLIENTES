@@ -1,4 +1,4 @@
-// Estructura completa con las carpetas y clientes reales
+// Estructura limpia y lógica de clientes y archivos
 const estructuraDatos = {
     "Andinos": {
         tipo: "carpeta",
@@ -6,7 +6,7 @@ const estructuraDatos = {
             "Documentacion General": {
                 tipo: "carpeta",
                 contenido: {
-                    "Especificaciones_Andinos.pdf": { tipo: "pdf", url: "#" },
+                    "Especificaciones_Andinos.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
                     "Planilla_Control_Andinos.xls": { tipo: "xls", url: "#" },
                     "Plano_Instalacion_Andinos.dwg": { tipo: "dwg", url: "#" }
                 }
@@ -19,7 +19,7 @@ const estructuraDatos = {
             "Documentacion General": {
                 tipo: "carpeta",
                 contenido: {
-                    "Especificaciones_Arcor.pdf": { tipo: "pdf", url: "#" },
+                    "Especificaciones_Arcor.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
                     "Planilla_Control_Arcor.xls": { tipo: "xls", url: "#" },
                     "Plano_Instalacion_Arcor.dwg": { tipo: "dwg", url: "#" }
                 }
@@ -32,7 +32,7 @@ const estructuraDatos = {
             "Documentacion General": {
                 tipo: "carpeta",
                 contenido: {
-                    "Especificaciones_ASA.pdf": { tipo: "pdf", url: "#" },
+                    "Especificaciones_ASA.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
                     "Planilla_Control_ASA.xls": { tipo: "xls", url: "#" },
                     "Plano_Instalacion_ASA.dwg": { tipo: "dwg", url: "#" }
                 }
@@ -45,7 +45,7 @@ const estructuraDatos = {
             "Documentacion General": {
                 tipo: "carpeta",
                 contenido: {
-                    "Especificaciones_Cartocor.pdf": { tipo: "pdf", url: "#" },
+                    "Especificaciones_Cartocor.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
                     "Planilla_Control_Cartocor.xls": { tipo: "xls", url: "#" },
                     "Plano_Instalacion_Cartocor.dwg": { tipo: "dwg", url: "#" }
                 }
@@ -58,7 +58,7 @@ const estructuraDatos = {
             "Documentacion General": {
                 tipo: "carpeta",
                 contenido: {
-                    "Especificaciones_Electrolux.pdf": { tipo: "pdf", url: "#" },
+                    "Especificaciones_Electrolux.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
                     "Planilla_Control_Electrolux.xls": { tipo: "xls", url: "#" },
                     "Plano_Instalacion_Electrolux.dwg": { tipo: "dwg", url: "#" }
                 }
@@ -71,7 +71,7 @@ const estructuraDatos = {
             "Documentacion General": {
                 tipo: "carpeta",
                 contenido: {
-                    "Especificaciones_FPC.pdf": { tipo: "pdf", url: "#" },
+                    "Especificaciones_FPC.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
                     "Planilla_Control_FPC.xls": { tipo: "xls", url: "#" },
                     "Plano_Instalacion_FPC.dwg": { tipo: "dwg", url: "#" }
                 }
@@ -84,7 +84,7 @@ const estructuraDatos = {
             "Documentacion General": {
                 tipo: "carpeta",
                 contenido: {
-                    "Especificaciones_Hamburgo.pdf": { tipo: "pdf", url: "#" },
+                    "Especificaciones_Hamburgo.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
                     "Planilla_Control_Hamburgo.xls": { tipo: "xls", url: "#" },
                     "Plano_Instalacion_Hamburgo.dwg": { tipo: "dwg", url: "#" }
                 }
@@ -97,7 +97,7 @@ const estructuraDatos = {
             "Documentacion General": {
                 tipo: "carpeta",
                 contenido: {
-                    "Especificaciones_LAF.pdf": { tipo: "pdf", url: "#" },
+                    "Especificaciones_LAF.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
                     "Planilla_Control_LAF.xls": { tipo: "xls", url: "#" },
                     "Plano_Instalacion_LAF.dwg": { tipo: "dwg", url: "#" }
                 }
@@ -110,7 +110,7 @@ const estructuraDatos = {
             "Documentacion General": {
                 tipo: "carpeta",
                 contenido: {
-                    "Manual_Operacion_Fanuc.pdf": { tipo: "pdf", url: "#" },
+                    "Manual_Operacion_Fanuc.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
                     "Parametros_Fanuc.xls": { tipo: "xls", url: "#" }
                 }
             }
@@ -122,7 +122,7 @@ const estructuraDatos = {
             "Documentacion General": {
                 tipo: "carpeta",
                 contenido: {
-                    "Especificaciones_MinutoVerde.pdf": { tipo: "pdf", url: "#" },
+                    "Especificaciones_MinutoVerde.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
                     "Planilla_Control_MinutoVerde.xls": { tipo: "xls", url: "#" },
                     "Plano_Instalacion_MinutoVerde.dwg": { tipo: "dwg", url: "#" }
                 }
@@ -135,7 +135,7 @@ const estructuraDatos = {
             "Documentacion General": {
                 tipo: "carpeta",
                 contenido: {
-                    "Especificaciones_TPC.pdf": { tipo: "pdf", url: "#" },
+                    "Especificaciones_TPC.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
                     "Planilla_Control_TPC.xls": { tipo: "xls", url: "#" },
                     "Plano_Instalacion_TPC.dwg": { tipo: "dwg", url: "#" }
                 }
@@ -148,7 +148,7 @@ const estructuraDatos = {
             "Documentacion General": {
                 tipo: "carpeta",
                 contenido: {
-                    "Especificaciones_Walmart.pdf": { tipo: "pdf", url: "#" },
+                    "Especificaciones_Walmart.pdf": { tipo: "pdf", url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" },
                     "Planilla_Control_Walmart.xls": { tipo: "xls", url: "#" },
                     "Plano_Instalacion_Walmart.dwg": { tipo: "dwg", url: "#" }
                 }
