@@ -117,6 +117,66 @@
         }
         .btn-cliente:hover { background-color: #0056b3; }
 
+        /* --- ESTILOS EXPLORADOR MANUALES (BOTÓN 5) --- */
+        #contenedorManuales {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border: 2px solid #003D75;
+            border-radius: 8px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+        .breadcrumb-trail {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #ddd;
+            font-weight: bold;
+        }
+        .folder-item, .file-item {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            margin: 8px 0;
+            padding: 12px 15px;
+            font-size: 16px;
+            background-color: #f8f9fa;
+            color: #333;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-sizing: border-box;
+        }
+        .folder-item:hover {
+            background-color: #e2e6ea;
+            border-color: #0070f3;
+        }
+        .file-item {
+            background-color: #e8f4fd;
+            border-color: #bbe1fa;
+            color: #003D75;
+            text-decoration: none;
+        }
+        .file-item:hover {
+            background-color: #d0e8fc;
+            border-color: #0070f3;
+        }
+        .btn-volver {
+            background-color: #6c757d !important;
+            max-width: 200px !important;
+            margin-bottom: 15px !important;
+            padding: 10px !important;
+            font-size: 14px !important;
+        }
+        .btn-volver:hover {
+            background-color: #5a6268 !important;
+        }
+
         /* Ventana emergente (Modal Clientes) */
         .modal {
             display: none; 
@@ -231,8 +291,14 @@
                 </div>
             </div>
 
-            <!-- Botón 5 -->
-            <button id="btnConfig">Catalogos/Manuales</button>
+            <!-- Botón 5: Catalogos/Manuales (Explorador Dinámico de Carpetas Excel) -->
+            <button id="btnConfig" onclick="toggleManuales()">Catalogos/Manuales</button>
+
+            <div id="contenedorManuales" style="display:none;">
+                <h3 style="color: #003D75; margin-top: 0;">Explorador de Manuales y Catálogos</h3>
+                <div id="breadcrumb" class="breadcrumb-trail">Raíz</div>
+                <div id="visorManualesBody"></div>
+            </div>
              
         </section>
     </main>
@@ -268,7 +334,7 @@
 
     <script src="script.js"></script>
 
-    <!-- Lógica de Carga Dinámica Plan Anual y Responsables Comerciales -->
+    <!-- Lógica de Carga Dinámica Plan Anual, Responsables Comerciales y Manuales -->
     <script>
         const urlScriptAnual = "https://script.google.com/macros/s/AKfycbwZQv7ZFhkx7PuoRdh7Vq2AjUK-cVAK8QYyM2lnjXrwlqJMQFR_h2inn7KIlWHi6sOj3A/exec?action=get_anual";
 
@@ -276,14 +342,12 @@
             const contenedor = document.getElementById("contenedorPlan");
             const iframe = document.getElementById("iframePlan");
 
-            // Si ya está abierto, lo cerramos
             if (contenedor.style.display === "block") {
                 contenedor.style.display = "none";
                 iframe.src = "";
                 return;
             }
 
-            // Limpiamos y mostramos el contenedor tipo visor
             iframe.src = "";
             contenedor.style.display = "block";
             contenedor.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -293,7 +357,6 @@
                 const resultado = await respuesta.json();
 
                 if (resultado.status === "success") {
-                    // Usamos el visor embebido con parámetro extra de compatibilidad
                     iframe.src = `https://drive.google.com/file/d/${resultado.id}/preview?usp=sharing`;
                 } else {
                     alert("No se pudo cargar el Plan Anual: " + resultado.message);
@@ -388,28 +451,145 @@
                 cont.style.display = "none";
             }
         }
+
+        // ==========================================
+        // LÓGICA DE EXPLORADOR DE MANUALES (BOTÓN 5)
+        // ==========================================
+        let manualesTree = {
+            "Andino": {
+                "Ciabatta Line _ 4707-2490": {
+                    "electrico": {
+                        "06_Documentación electrica diagrama de cableado": {
+                            "__files__": [
+                                {name: "4707-2490 Ciabatta Line 2025 05 16_en.pdf", ext: ".pdf"},
+                                {name: "Cover_Documentacion electronica_ES.pdf", ext: ".pdf"}
+                            ]
+                        },
+                        "06_Documentation  electronic": {
+                            "__files__": [
+                                {name: "4707-2490 Ciabatta Line 2025 05 16_en.pdf", ext: ".pdf"},
+                                {name: "Cover_Docu.Electronic.pdf", ext: ".pdf"},
+                                {name: "Thumbs.db", ext: ".db"}
+                            ]
+                        }
+                    },
+                    "general": {
+                        "__files__": [
+                            {name: "08_PROPUESTA 20241017_ASA_V9--05.05.2025 CL.dwg", ext: ".dwg"},
+                            {name: "553_terminal-3035-gebrauchsanweisung-es.pdf", ext: ".pdf"}
+                        ],
+                        "00_Index": { "__files__": [{name: "Index_ENG.pdf", ext: ".pdf"}] },
+                        "00_Indice": { "__files__": [{name: "Indice.pdf", ext: ".pdf"}] },
+                        "01_General instructions": { "__files__": [{name: "General instruction.pdf", ext: ".pdf"}] },
+                        "01_Informacion general": { "__files__": [{name: "Informacion general.pdf", ext: ".pdf"}] },
+                        "02_Instrucciones de uso": {
+                            "__files__": [
+                                {name: "Betriebsanleitung_Conveyor(Spanisch).pdf", ext: ".pdf"},
+                                {name: "Cov_Documentacion tecnica_ES.pdf", ext: ".pdf"},
+                                {name: "Cov_Instrucciones de uso_ES.pdf", ext: ".pdf"},
+                                {name: "Instrucciones de uso_ES.pdf", ext: ".pdf"}
+                            ]
+                        }
+                    }
+                }
+            },
+            "Arcor": {},
+            "ASA": {},
+            "LAF": {},
+            "Manuales Fanuc": {},
+            "Minuto Verde": {},
+            "TPC": {},
+            "Walmart": {}
+        };
+
+        let currentPathStack = [];
+
+        function toggleManuales() {
+            const cont = document.getElementById("contenedorManuales");
+            if (cont.style.display === "none" || cont.style.display === "") {
+                cont.style.display = "block";
+                currentPathStack = [];
+                renderManualesLevel();
+                setTimeout(() => {
+                    cont.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 100);
+            } else {
+                cont.style.display = "none";
+            }
+        }
+
+        function renderManualesLevel() {
+            const breadcrumbEl = document.getElementById("breadcrumb");
+            const bodyEl = document.getElementById("visorManualesBody");
+            
+            // Navegar hasta el nivel actual
+            let currentObj = manualesTree;
+            for (let folder of currentPathStack) {
+                if (currentObj[folder]) {
+                    currentObj = currentObj[folder];
+                }
+            }
+
+            // Actualizar ruta visual
+            breadcrumbEl.innerText = "Raíz" + (currentPathStack.length > 0 ? " > " + currentPathStack.join(" > ") : "");
+            bodyEl.innerHTML = "";
+
+            // Botón Volver si estamos dentro de una subcarpeta
+            if (currentPathStack.length > 0) {
+                const btnVolver = document.createElement("button");
+                btnVolver.className = "folder-item btn-volver";
+                btnVolver.innerText = "⬅ Volver atrás";
+                btnVolver.onclick = () => {
+                    currentPathStack.pop();
+                    renderManualesLevel();
+                };
+                bodyEl.appendChild(btnVolver);
+            }
+
+            // Listar subcarpetas
+            const keys = Object.keys(currentObj).filter(k => k !== "__files__");
+            keys.sort().forEach(folderName => {
+                const btn = document.createElement("button");
+                btn.className = "folder-item";
+                btn.innerText = "📁 " + folderName;
+                btn.onclick = () => {
+                    currentPathStack.push(folderName);
+                    renderManualesLevel();
+                };
+                bodyEl.appendChild(btn);
+            });
+
+            // Listar archivos si existen en esta carpeta
+            if (currentObj["__files__"] && currentObj["__files__"].length > 0) {
+                const sep = document.createElement("hr");
+                sep.style.margin = "15px 0";
+                sep.style.border = "0";
+                sep.style.borderTop = "1px solid #ccc";
+                bodyEl.appendChild(sep);
+
+                const fileTitle = document.createElement("div");
+                fileTitle.style.fontWeight = "bold";
+                fileTitle.style.marginBottom = "8px";
+                fileTitle.style.color = "#555";
+                fileTitle.innerText = "Archivos disponibles:";
+                bodyEl.appendChild(fileTitle);
+
+                currentObj["__files__"].forEach(file => {
+                    const fileLink = document.createElement("div");
+                    fileLink.className = "file-item";
+                    fileLink.innerHTML = "📄 <strong>" + file.name + "</strong> <span style='font-size:12px; color:#666;'>(" + file.ext + ")</span>";
+                    bodyEl.appendChild(fileLink);
+                });
+            }
+
+            if (keys.length === 0 && (!currentObj["__files__"] || currentObj["__files__"].length === 0)) {
+                const emptyMsg = document.createElement("p");
+                emptyMsg.style.color = "#777";
+                emptyMsg.style.fontStyle = "italic";
+                emptyMsg.innerText = "Esta carpeta está vacía.";
+                bodyEl.appendChild(emptyMsg);
+            }
+        }
     </script>
-</body>
-</html><!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prueba Clientes - OneDrive</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header style="padding: 20px; background: #0078d4; color: white; text-align: center;">
-        <h1>E y V Solutions - Acceso a Clientes</h1>
-    </header>
-
-    <main style="max-width: 800px; margin: 30px auto; padding: 0 20px;">
-        <!-- Este es el contenedor clave que el script está buscando -->
-        <div id="visor-contenido">
-            <p>Cargando contenido...</p>
-        </div>
-    </main>
-
-    <script src="script.js"></script>
 </body>
 </html>
